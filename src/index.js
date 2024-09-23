@@ -20,6 +20,11 @@ io.on('connection', (socket) => {
     io.emit('message', message) // Broadcast the message to all clients
   })
 
+  socket.on('nudge', (nudge) => {
+      console.log('Nudge received:', nudge)
+      io.emit('nudge', nudge)
+    })
+
   socket.on('disconnect', () => {
     console.log('Client disconnected')
   })
